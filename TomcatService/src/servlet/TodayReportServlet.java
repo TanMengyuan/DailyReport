@@ -1,6 +1,5 @@
 package servlet;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +25,7 @@ public class TodayReportServlet extends HttpServlet {
 
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=UTF-8");
+        resp.setContentType("text/html;charset=UTF-8");
         PrintWriter printWriter = resp.getWriter();
         String sql;
         List<List<String>> lists = new ArrayList<>();
@@ -33,7 +33,7 @@ public class TodayReportServlet extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-            String databaseName = "info_demo";
+            String databaseName = "info";
             String userName = "root";
             String password = "asd19941016";
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databaseName, userName, password);

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
 /**
@@ -18,12 +19,14 @@ public class SubmitReportServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         req.setCharacterEncoding("UTF-8");
-        String name = req.getParameter("name");
-        String fever = req.getParameter("fever");
-        String contact = req.getParameter("contact");
-        String report = req.getParameter("report");
-        String others = req.getParameter("others");
+        String name = new String(req.getParameter("name").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+        String fever = new String(req.getParameter("fever").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+        String contact = new String(req.getParameter("contact").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+        String report = new String(req.getParameter("report").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+        String others = new String(req.getParameter("others").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+
         resp.setContentType("text/html;charset=UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         PrintWriter printWriter = resp.getWriter();
 
         int maxLength= 30;
@@ -48,10 +51,13 @@ public class SubmitReportServlet extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-            String databaseName = "info_demo";
+            String databaseName = "info";
             String userName = "root";
             String password = "asd19941016";
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databaseName, userName, password);
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/" + databaseName +
+                            "?useUnicode=true&characterEncoding=utf8",
+                    userName, password);
 
             PreparedStatement stmt;
             sql = "CREATE TABLE IF NOT EXISTS `person`" +
@@ -99,12 +105,12 @@ public class SubmitReportServlet extends HttpServlet {
 
             conn.close();
 
+            printWriter.println("<html><body>");
+            printWriter.println(name + "，信息提交成功。");
+            printWriter.println("</body></html>");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        printWriter.println("<html><body>");
-        printWriter.println(name + "，信息提交成功。");
-        printWriter.println("</body></html>");
     }
 }
