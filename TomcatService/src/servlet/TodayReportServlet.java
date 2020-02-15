@@ -36,7 +36,12 @@ public class TodayReportServlet extends HttpServlet {
             String databaseName = "info";
             String userName = "root";
             String password = "asd19941016";
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databaseName, userName, password);
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/" + databaseName +
+                            "?useUnicode=true&" +
+                            "characterEncoding=utf8&" +
+                            "serverTimezone=Asia/Shanghai",
+                    userName, password);
 
             PreparedStatement stmt;
 

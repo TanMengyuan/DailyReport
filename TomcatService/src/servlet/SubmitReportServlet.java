@@ -56,7 +56,9 @@ public class SubmitReportServlet extends HttpServlet {
             String password = "asd19941016";
             Connection conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/" + databaseName +
-                            "?useUnicode=true&characterEncoding=utf8",
+                            "?useUnicode=true&" +
+                            "characterEncoding=utf8&" +
+                            "serverTimezone=Asia/Shanghai",
                     userName, password);
 
             PreparedStatement stmt;
@@ -99,7 +101,6 @@ public class SubmitReportServlet extends HttpServlet {
                         new java.sql.Timestamp(System.currentTimeMillis()));
             }
 
-            System.out.println(sql);
             stmt = conn.prepareStatement(sql);
             stmt.execute();
 
