@@ -11,9 +11,9 @@
     <title>每日信息汇报</title>
   </head>
   <body>
-  <h1>每日信息汇报</h1>
+  <h1 align="center">每日信息汇报</h1>
   <form action="SubmitReport" method="post">
-    <table>
+    <table align="center" width="80%">
         <tr>
             <td>姓名：</td>
             <td><label>
@@ -47,18 +47,16 @@
             </label></td>
         </tr>
         <tr>
-            <td>
-                <input type="submit" style="width:120px;height:80px" value="提交">
+            <td align="center" colspan="2">
+                <input type="submit" value="提交">
             </td>
         </tr>
     </table>
   </form>
   <form action="TodayReport" method="post">
-      <tr>
-          <td>
-              <input type="submit" style="width:120px;height:80px" value="获取当日汇总信息">
-          </td>
-      </tr>
+      <p align="center">
+          <input type="submit" value="获取当日汇总信息">
+      </p>
   </form>
   </body>
 </html>
