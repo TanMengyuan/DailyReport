@@ -6,6 +6,7 @@
 <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
 </welcome-file-list>
+
     <servlet>
         <!-- servlet名称，与servlet-mapping中的servlet-name必须一致 -->
         <servlet-name>SubmitReportServlet</servlet-name>
@@ -16,14 +17,22 @@
         <servlet-name>TodayReportServlet</servlet-name>
         <servlet-class>servlet.TodayReportServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HistoryReportServlet</servlet-name>
+        <servlet-class>servlet.HistoryReportServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
-        <!-- servlet名称，与上面中的servlet-name必须一致 -->
         <servlet-name>SubmitReportServlet</servlet-name>
-        <!-- servlet名称，与上面中的servlet-name必须一致 -->
         <url-pattern>/SubmitReport</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TodayReportServlet</servlet-name>
         <url-pattern>/TodayReport</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HistoryReportServlet</servlet-name>
+        <url-pattern>/HistoryReport</url-pattern>
+    </servlet-mapping>
+
 </web-app>

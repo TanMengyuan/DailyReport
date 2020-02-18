@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="TomcatService:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/TomcatService_war</output-path>
+    <root id="archive" name="TomcatService_war.war">
+      <element id="artifact" artifact-name="TomcatService:war exploded" />
+    </root>
+  </artifact>
+</component>

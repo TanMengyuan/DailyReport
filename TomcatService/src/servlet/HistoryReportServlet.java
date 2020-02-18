@@ -6,26 +6,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 /**
  * @author mengyuantan
  */
-@WebServlet(name = "TodayReportServlet", urlPatterns = {"/TodayReport"})
-public class TodayReportServlet extends HttpServlet {
+@WebServlet(name = "HistoryReportServlet", urlPatterns = {"/HistoryReport"})
+public class HistoryReportServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         req.setCharacterEncoding("UTF-8");
+        String date = new String(req.getParameter("date").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
 
         resp.setContentType("text/html;charset=UTF-8");
         resp.setContentType("text/html;charset=UTF-8");
@@ -48,7 +48,8 @@ public class TodayReportServlet extends HttpServlet {
 
             PreparedStatement stmt;
 
-            sql = "SELECT * FROM person WHERE to_days(submission_date) = to_days(now());";
+            sql = String.format("SELECT * FROM person " +
+                    "WHERE to_days(submission_date) = to_days('%s');", date);
 
             stmt = conn.prepareStatement(sql);
             stmt.execute();
@@ -70,13 +71,9 @@ public class TodayReportServlet extends HttpServlet {
         }
 
 
-
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date(System.currentTimeMillis());
         StringBuilder result = new StringBuilder();
         result.append("<html><body><center><table border=\"1\" cellspacing=\"0\" width:'100%'>");
-        result.append(String.format("<tr><h3>%s 汇总结果</h3></tr>",
-                formatter.format(date)));
+        result.append(String.format("<h3>%s 汇总结果</h3>", date));
         result.append("<tr>" +
                 "<th>姓名</th>" +
                 "<th>是否有发热症状</th>" +

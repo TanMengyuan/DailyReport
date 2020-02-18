@@ -18,6 +18,7 @@ public class SubmitReportServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
+        // todo: 增加密码服务，防止他人修改自己的数据
         req.setCharacterEncoding("UTF-8");
         String name = new String(req.getParameter("name").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
         String fever = new String(req.getParameter("fever").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
