@@ -25,6 +25,7 @@ public class HistoryReportServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         req.setCharacterEncoding("UTF-8");
+        // todo: 传入时间为空则不查询，返回错误信息
         String date = new String(req.getParameter("date").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
 
         resp.setContentType("text/html;charset=UTF-8");
