@@ -15,8 +15,8 @@
   </head>
 
   <body>
-  <center>
-      <h1 align="center">每日信息汇报 v1.1</h1>
+  <div style="text-align: center;">
+      <h1 align="center">每日信息汇报 v1.2</h1>
       <form action="SubmitReport" method="post">
         <table align="center" width="80%">
             <tr>
@@ -59,6 +59,8 @@
         </table>
       </form>
 
+      <h3>获取当日信息</h3>
+
       <form action="TodayReport" method="post">
           <p align="center" style="height: 40px">
               <input type="submit" value="获取当日汇总信息">
@@ -70,10 +72,11 @@
       <form action="HistoryReport" method="post">
           <table align="center" width="80%">
               <tr>
-<%--                  日期框设为只读 Readonly--%>
-                 <input class="Wdate" type="text" name="date"
-                        onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})">
-                  <font color=red>&lt;- 点击选择日期</font>
+                  <label>
+                      <input class="Wdate" type="text" name="date" readonly
+                             onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})">
+                  </label>
+                  <span>  </span>
               </tr>
               <tr>
                   <input type="submit" value="查询">
@@ -81,7 +84,7 @@
           </table>
       </form>
 
-  </center>
+  </div>
   </body>
 
 </html>

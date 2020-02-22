@@ -24,8 +24,8 @@ public class HistoryReportServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
+        // todo: 固定表格的宽度
         req.setCharacterEncoding("UTF-8");
-        // todo: 传入时间为空则不查询，返回错误信息
         String date = new String(req.getParameter("date").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
 
         resp.setContentType("text/html;charset=UTF-8");
@@ -33,6 +33,13 @@ public class HistoryReportServlet extends HttpServlet {
         PrintWriter printWriter = resp.getWriter();
         String sql;
         List<List<String>> lists = new ArrayList<>();
+
+        if (date.isEmpty()) {
+            printWriter.println("<html><body>");
+            printWriter.println("查询日期为空，请选择查询日期。");
+            printWriter.println("</body></html>");
+            return;
+        }
 
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
