@@ -18,7 +18,7 @@
   <div style="text-align: center;">
       <h1 align="center">每日信息汇报 v1.2</h1>
       <form action="SubmitReport" method="post">
-        <table align="center" width="80%">
+        <table align="center" width="85%">
             <tr>
                 <td align="right" width="45%">姓名：</td>
                 <td width="55%"><label>
@@ -70,7 +70,7 @@
       <h3>根据日期查询历史信息</h3>
 
       <form action="HistoryReport" method="post">
-          <table align="center" width="80%">
+          <table align="center" width="85%">
               <tr>
                   <label>
                       <input class="Wdate" type="text" name="date" readonly
