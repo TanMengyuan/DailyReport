@@ -5,6 +5,7 @@ import java.util.List;
 class BuildResponse {
 
     StringBuilder buildResponse(String date, List<List<String>> lists) {
+        // todo: 表格的宽度还需要继续处理
         StringBuilder result = new StringBuilder();
         result.append("<html><body><table border=\"1\" align=\"center\" " +
                 "cellspacing=\"0\" style=\"table-layout: fixed\">");
