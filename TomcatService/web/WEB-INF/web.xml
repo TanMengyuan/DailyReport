@@ -21,6 +21,10 @@
         <servlet-name>HistoryReportServlet</servlet-name>
         <servlet-class>servlet.HistoryReportServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExportServlet</servlet-name>
+        <servlet-class>servlet.ExportServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>SubmitReportServlet</servlet-name>
@@ -33,6 +37,10 @@
     <servlet-mapping>
         <servlet-name>HistoryReportServlet</servlet-name>
         <url-pattern>/HistoryReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExportServlet</servlet-name>
+        <url-pattern>/Export</url-pattern>
     </servlet-mapping>
 
 </web-app>

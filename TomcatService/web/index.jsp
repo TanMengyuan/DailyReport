@@ -10,13 +10,14 @@
 
   <head>
       <script language="javascript" type="text/javascript"
-              src="My97DatePicker/WdatePicker.js"></script>
+              src="My97DatePicker/WdatePicker.js">
+      </script>
       <title>每日信息汇报</title>
   </head>
 
   <body>
   <div style="text-align: center;">
-      <h1 align="center">每日信息汇报 v1.2</h1>
+      <h1 align="center">每日信息汇报 v1.3</h1>
       <form action="SubmitReport" method="post">
         <table align="center">
             <tr>
@@ -61,11 +62,18 @@
 
       <h3>获取当日信息</h3>
 
-      <form action="TodayReport" method="post">
+      <form action="TodayReport" method="get">
           <p align="center" style="height: 40px">
               <input type="submit" value="获取当日汇总信息">
           </p>
       </form>
+
+      <form role="form" method="get" action="Export">
+          <p align="center" style="height: 40px">
+              <input type="submit" value="将当日汇总信息导出至Excel">
+          </p>
+      </form>
+
 
       <h3>根据日期查询历史信息</h3>
 
