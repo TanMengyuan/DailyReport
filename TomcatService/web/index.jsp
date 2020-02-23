@@ -18,36 +18,36 @@
   <div style="text-align: center;">
       <h1 align="center">每日信息汇报 v1.2</h1>
       <form action="SubmitReport" method="post">
-        <table align="center" width="85%">
+        <table align="center">
             <tr>
-                <td align="right" width="45%">姓名：</td>
-                <td width="55%"><label>
+                <td align="right" width="50%">姓名：</td>
+                <td width="50%"><label>
                   <input type="text" name="name">
                 </label></td>
             </tr>
             <tr>
-                <td align="right" width="45%">是否有发热症状：</td>
-                <td width="55%"><label>
+                <td align="right" width="50%">是否有发热症状：</td>
+                <td width="50%"><label>
                   <input type="radio" value="是" name="fever"/> 是
                   <input type="radio" value="否" name="fever" checked="checked"/> 否
                 </label></td>
             </tr>
             <tr>
-                <td align="right" width="45%">是否与疫区人员接触：</td>
-                <td width="55%"><label>
+                <td align="right" width="50%">是否与疫区人员接触：</td>
+                <td width="50%"><label>
                   <input type="radio" value="是" name="contact"/> 是
                   <input type="radio" value="否" name="contact" checked="checked"/> 否
                 </label></td>
             </tr>
             <tr>
-                <td align="right" width="45%">工作简报：</td>
-                <td width="55%"><label>
+                <td align="right" width="50%">工作简报：</td>
+                <td width="50%"><label>
                   <input type="text" name="report">
                 </label></td>
             </tr>
             <tr>
-                <td align="right" width="45%">其他：</td>
-                <td width="55%"><label>
+                <td align="right" width="50%">其他：</td>
+                <td width="50%"><label>
                   <input type="text" name="others">
                 </label></td>
             </tr>
