@@ -1,3 +1,7 @@
+import cn.afterturn.easypoi.excel.ExcelExportUtil;
+import cn.afterturn.easypoi.excel.entity.ExportParams;
+import entity.PersonEntity;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
@@ -28,6 +32,15 @@ public class test {
         XSSFWorkbook wb = new XSSFWorkbook();
         XSSFSheet sheet = wb.createSheet("sheet1");
         System.out.println("test workbook");
+    }
+
+    @Test
+    public void test1() {
+        Workbook workbook = ExcelExportUtil.exportExcel(
+                new ExportParams("123","sheet1"),
+                PersonEntity.class,
+                new ArrayList<>());
+        System.out.println("success");
     }
 
 }

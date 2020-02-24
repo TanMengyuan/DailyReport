@@ -6,6 +6,37 @@
         <element id="directory" name="classes">
           <element id="module-output" name="TomcatService" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector-java-5.1.48" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: cn.afterturn:easypoi-annotation:3.2.0" />
+          <element id="library" level="project" name="Maven: cn.afterturn:easypoi-base:3.2.0" />
+          <element id="library" level="project" name="Maven: cn.afterturn:easypoi-web:3.2.0" />
+          <element id="library" level="project" name="Maven: com.github.virtuald:curvesapi:1.04" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:16.0.1" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.1" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Maven: junit:junit:4.12" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-collections4:4.1" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.2.1" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml-schemas:3.15" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml:3.15" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi:3.15" />
+          <element id="library" level="project" name="Maven: org.apache.xmlbeans:xmlbeans:2.6.0" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: stax:stax-api:1.0.1" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="TomcatService/web/Web" />
     </root>
