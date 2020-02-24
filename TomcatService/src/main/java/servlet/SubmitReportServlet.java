@@ -114,4 +114,9 @@ public class SubmitReportServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        this.doPost(req, resp);
+    }
 }
