@@ -62,13 +62,13 @@
 
       <h3>获取当日信息</h3>
 
-      <form action="TodayReport" method="get">
+      <form action="TodayReport" method="get" target="_blank">
           <p align="center" style="height: 40px">
               <input type="submit" value="获取当日汇总信息">
           </p>
       </form>
 
-      <form role="form" method="get" action="Export">
+      <form role="form" method="get" action="Export" target="_blank">
           <p align="center" style="height: 40px">
               <input type="submit" value="将当日信息导出至Excel">
           </p>
@@ -77,7 +77,7 @@
 
       <h3>根据日期查询历史信息</h3>
 
-      <form action="HistoryReport" method="post">
+      <form action="HistoryReport" method="post" target="_blank">
           <table align="center" width="85%">
               <tr>
                   <label>
@@ -98,11 +98,11 @@
       <span style="color: dimgray; ">
           <p style="align-content: center">
               Power by
-              <a href="https://github.com/TanMengyuan">
+              <a href="https://github.com/TanMengyuan" target="_blank">
                   TanMengyuan
               </a> <br>
             Source Code:
-              <a href="https://github.com/TanMengyuan/DailyReport">
+              <a href="https://github.com/TanMengyuan/DailyReport" target="_blank">
                   https://github.com/TanMengyuan/DailyReport
               </a>
           </p>
