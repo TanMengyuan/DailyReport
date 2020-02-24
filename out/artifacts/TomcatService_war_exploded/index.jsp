@@ -70,7 +70,7 @@
 
       <form role="form" method="get" action="Export">
           <p align="center" style="height: 40px">
-              <input type="submit" value="将当日汇总信息导出至Excel">
+              <input type="submit" value="将当日信息导出至Excel">
           </p>
       </form>
 
@@ -91,6 +91,21 @@
               </tr>
           </table>
       </form>
+
+      <br>
+      <br>
+
+      <span style="color: dimgray; ">
+          <p style="align-content: center">
+              Power by <a href="https://github.com/TanMengyuan" target="_blank">
+                  @TanMengyuan
+              </a> <br>
+            Source Code:
+              <a href="https://github.com/TanMengyuan/DailyReport" target="_blank">
+                  https://github.com/TanMengyuan/DailyReport
+              </a>
+          </p>
+      </span>
 
   </div>
   </body>
