@@ -20,7 +20,8 @@ public class HistoryReportServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         req.setCharacterEncoding("UTF-8");
-        String date = new String(req.getParameter("date").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+        String date = new String(req.getParameter("date").
+                getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
 
         resp.setContentType("text/html;charset=UTF-8");
         resp.setContentType("text/html;charset=UTF-8");

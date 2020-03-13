@@ -17,7 +17,7 @@
 
   <body>
   <div style="text-align: center;">
-      <h1 align="center">每日信息汇报 v1.3</h1>
+      <h1 align="center">每日信息汇报 v1.4</h1>
       <form action="SubmitReport" method="post">
         <table align="center">
             <tr>
@@ -75,7 +75,7 @@
       </form>
 
 
-      <h3>根据日期查询历史信息</h3>
+      <h3>查询历史信息</h3>
 
       <form action="HistoryReport" method="post" target="_blank">
           <table align="center" width="85%">

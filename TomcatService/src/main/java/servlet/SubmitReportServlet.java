@@ -1,5 +1,10 @@
 package servlet;
 
+import checker.NameChecker;
+import checker.OtherChecker;
+import checker.ReportChecker;
+import org.apache.poi.ss.formula.functions.Na;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,22 +34,34 @@ public class SubmitReportServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         PrintWriter printWriter = resp.getWriter();
 
-        int maxLength = 30;
+        NameChecker nameChecker = new NameChecker();
+        ReportChecker reportChecker = new ReportChecker();
+        OtherChecker otherChecker = new OtherChecker();
 
-        if (report.length() > maxLength || others.length() > maxLength) {
+        nameChecker.checkName(name);
+        reportChecker.checkReport(report);
+        otherChecker.checkOther(others);
+
+        if (!nameChecker.isPass()) {
             printWriter.println("<html><body>");
-            printWriter.println("工作简报或其他汇报中内容不应超过30字，请重新输入。");
+            printWriter.println(nameChecker.getErrorMsg());
             printWriter.println("</body></html>");
             return;
         }
 
-        if (name.isEmpty()) {
+        if (!reportChecker.isPass()) {
             printWriter.println("<html><body>");
-            printWriter.println("姓名不能为空，请重新输入。");
+            printWriter.println(reportChecker.getErrorMsg());
             printWriter.println("</body></html>");
             return;
         }
 
+        if (!otherChecker.isPass()) {
+            printWriter.println("<html><body>");
+            printWriter.println(otherChecker.getErrorMsg());
+            printWriter.println("</body></html>");
+            return;
+        }
 
         String sql;
 

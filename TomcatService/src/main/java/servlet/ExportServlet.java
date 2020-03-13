@@ -37,7 +37,8 @@ public class ExportServlet extends HttpServlet {
         String sql;
         List<List<String>> lists = new ArrayList<>();
 
-        sql = "SELECT * FROM person WHERE to_days(submission_date) = to_days(now());";
+        sql = String.format("SELECT * FROM person " +
+                "WHERE to_days(submission_date) = to_days('%s');", date);
 
         try {
             GetSqlResult getSqlResult = new GetSqlResult();
