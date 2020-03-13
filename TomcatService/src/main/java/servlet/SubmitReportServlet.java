@@ -38,6 +38,7 @@ public class SubmitReportServlet extends HttpServlet {
         ReportChecker reportChecker = new ReportChecker();
         OtherChecker otherChecker = new OtherChecker();
 
+        // todo: 信息校验的过程可以尝试整合
         nameChecker.checkName(name);
         reportChecker.checkReport(report);
         otherChecker.checkOther(others);

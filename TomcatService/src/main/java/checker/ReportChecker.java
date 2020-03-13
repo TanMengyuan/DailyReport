@@ -12,7 +12,7 @@ public class ReportChecker {
         if (report.length() < parameters.getReportMinLength() ||
                 report.length() > parameters.getReportMaxLength()) {
             isPass = false;
-            errorMsg = String.format("工作简报中内容不应超过%s字，请重新输入。",
+            errorMsg = String.format(ErrorMessage.reportError,
                     parameters.getReportMaxLength());
         } else {
             isPass = true;

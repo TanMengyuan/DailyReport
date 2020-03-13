@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import config.Config;
 
 /**
  * @author mengyuantan
@@ -18,23 +19,9 @@ public class GetSqlResult {
         List<List<String>> lists = new ArrayList<>();
 
         try {
-            PreparedStatement stmt;
+            DoSql doSql = new DoSql();
+            ResultSet rs = doSql.doSql(sql);
 
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-
-            String databaseName = "info";
-            String userName = "root";
-            String password = "asd19941016";
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/" + databaseName +
-                            "?useUnicode=true&" +
-                            "characterEncoding=utf8&" +
-                            "serverTimezone=Asia/Shanghai",
-                    userName, password);
-
-            stmt = conn.prepareStatement(sql);
-            stmt.execute();
-            ResultSet rs = stmt.getResultSet();
             while (rs.next()) {
                 String name = rs.getString("name");
                 String fever = rs.getString("fever");

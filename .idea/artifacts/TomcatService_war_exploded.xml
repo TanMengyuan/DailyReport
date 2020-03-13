@@ -7,7 +7,6 @@
           <element id="module-output" name="TomcatService" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="mysql-connector-java-5.1.48" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Maven: cn.afterturn:easypoi-annotation:3.2.0" />
           <element id="library" level="project" name="Maven: cn.afterturn:easypoi-base:3.2.0" />
@@ -36,6 +35,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-web:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: stax:stax-api:1.0.1" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.48" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="TomcatService/web/Web" />

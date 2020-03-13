@@ -12,7 +12,7 @@ public class OtherChecker {
         if (other.length() < parameters.getOtherMinLength() ||
                 other.length() > parameters.getOtherMaxLength()) {
             isPass = false;
-            errorMsg = String.format("其他汇报中内容不应超过%s字，请重新输入。",
+            errorMsg = String.format(ErrorMessage.otherError,
                     parameters.getOtherMaxLength());
         } else {
             isPass = true;

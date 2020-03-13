@@ -5,7 +5,6 @@ import java.util.List;
 class BuildResponse {
 
     StringBuilder buildResponse(String date, List<List<String>> lists) {
-        // todo: 表格的宽度还需要继续处理
         StringBuilder result = new StringBuilder();
         result.append("<html><body><table border=\"1\" align=\"center\" " +
                 "cellspacing=\"0\" style=\"table-layout: fixed\">");
@@ -33,7 +32,13 @@ class BuildResponse {
             }
             result.append("</tr>");
         }
-        result.append("</table></body></html>");
+        result.append(String.format("</table>" +
+                "<form role=\"form\" method=\"post\" action=\"Export\" target=\"_blank\">" +
+                "<p align=\"center\" style=\"height: 40px\">" +
+                "<button type=\"submit\" name=\"date\" value=\"%s\">导出为Excel</button>" +
+                "</p>" +
+                "</form>" +
+                "</body></html>", date));
         return result;
     }
 }
