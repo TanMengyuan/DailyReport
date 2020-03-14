@@ -13,17 +13,31 @@ class Parameters {
         return reportMaxLength;
     }
 
+    public void setReportMaxLength(int reportMaxLength) {
+        this.reportMaxLength = reportMaxLength;
+    }
+
     int getReportMinLength() {
         return reportMinLength;
     }
 
+    public void setReportMinLength(int reportMinLength) {
+        this.reportMinLength = reportMinLength;
+    }
 
     int getOtherMaxLength() {
         return otherMaxLength;
     }
 
+    public void setOtherMaxLength(int otherMaxLength) {
+        this.otherMaxLength = otherMaxLength;
+    }
 
     int getOtherMinLength() {
         return otherMinLength;
+    }
+
+    public void setOtherMinLength(int otherMinLength) {
+        this.otherMinLength = otherMinLength;
     }
 }
