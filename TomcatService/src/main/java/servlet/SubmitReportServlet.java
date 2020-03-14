@@ -65,21 +65,9 @@ public class SubmitReportServlet extends HttpServlet {
         }
 
         String sql;
+        DoSql doSql = new DoSql();
 
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-
-            String databaseName = "info";
-            String userName = "root";
-            String password = "asd19941016";
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/" + databaseName +
-                            "?useUnicode=true&" +
-                            "characterEncoding=utf8&" +
-                            "serverTimezone=Asia/Shanghai",
-                    userName, password);
-
-            PreparedStatement stmt;
             sql = "CREATE TABLE IF NOT EXISTS `person`" +
                     "(`id` INT UNSIGNED AUTO_INCREMENT," +
                     "`name` VARCHAR(40) NOT NULL," +
@@ -90,16 +78,13 @@ public class SubmitReportServlet extends HttpServlet {
                     "`submission_date` TIMESTAMP," +
                     "PRIMARY KEY (`id`))" +
                     "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-            stmt = conn.prepareStatement(sql);
-            stmt.execute();
+            doSql.doSql(sql);
 
             sql = String.format("SELECT * FROM person " +
                     "WHERE name = '%s' AND " +
                     "to_days(submission_date) = to_days(now());",
                     name);
-            stmt = conn.prepareStatement(sql);
-            stmt.execute();
-            ResultSet resultSet = stmt.getResultSet();
+            ResultSet resultSet = doSql.doSql(sql);
             if (!resultSet.next()) {
                 sql = String.format("INSERT INTO person " +
                                 "(name, fever, contact, report, others, submission_date) VALUES " +
@@ -119,10 +104,7 @@ public class SubmitReportServlet extends HttpServlet {
                         new java.sql.Timestamp(System.currentTimeMillis()));
             }
 
-            stmt = conn.prepareStatement(sql);
-            stmt.execute();
-
-            conn.close();
+            doSql.doSql(sql);
 
             printWriter.println("<html><body>");
             printWriter.println(name + "，信息提交成功。");

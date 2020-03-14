@@ -3,7 +3,6 @@ package servlet;
 import java.util.List;
 
 class BuildResponse {
-
     StringBuilder buildResponse(String date, List<List<String>> lists) {
         StringBuilder result = new StringBuilder();
         result.append("<html><body><table border=\"1\" align=\"center\" " +
