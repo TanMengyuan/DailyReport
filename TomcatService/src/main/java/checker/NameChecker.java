@@ -1,13 +1,11 @@
 package checker;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import config.Config;
-import servlet.DoSql;
+
+import servlet.helper.DoSql;
+import servlet.helper.UserHelper;
 
 /**
  * @author mengyuantan
@@ -21,7 +19,8 @@ public class NameChecker {
             isPass = false;
             errorMsg = ErrorMessage.noNameError;
         } else {
-            List<String> verifiedNameList = getVerifiedName();
+            UserHelper userHelper = new UserHelper();
+            List<String> verifiedNameList = userHelper.getVerifiedName();
             if (verifiedNameList.contains(name)) {
                 isPass = true;
             } else {
@@ -31,25 +30,6 @@ public class NameChecker {
         }
     }
 
-    private List<String> getVerifiedName() {
-        List<String> verifiedNameList = new ArrayList<>();
-
-        try {
-            String sql = "SELECT * FROM verified_name;";
-            DoSql doSql = new DoSql();
-            ResultSet rs = doSql.doSql(sql);
-
-            while (rs.next()) {
-                String verifiedName = rs.getString("verified_name");
-                verifiedNameList.add(verifiedName);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return verifiedNameList;
-    }
 
     public boolean isPass() {
         return isPass;

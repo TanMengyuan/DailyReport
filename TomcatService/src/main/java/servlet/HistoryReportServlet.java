@@ -1,5 +1,8 @@
 package servlet;
 
+import servlet.helper.BuildResponse;
+import servlet.helper.GetSqlResult;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,8 +49,12 @@ public class HistoryReportServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        BuildResponse buildResponse = new BuildResponse();
-        StringBuilder result = buildResponse.buildResponse(date, lists);
-        printWriter.println(result);
+        try {
+            BuildResponse buildResponse = new BuildResponse();
+            StringBuilder result = buildResponse.buildResponse(date, lists);
+            printWriter.println(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

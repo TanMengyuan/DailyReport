@@ -1,14 +1,11 @@
-package servlet;
+package servlet.helper;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import servlet.helper.DoSql;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import config.Config;
 
 /**
  * @author mengyuantan
@@ -22,6 +19,8 @@ public class GetSqlResult {
             DoSql doSql = new DoSql();
             ResultSet rs = doSql.doSql(sql);
 
+            List<String> finishedName = new ArrayList<>();
+
             while (rs.next()) {
                 String name = rs.getString("name");
                 String fever = rs.getString("fever");
@@ -32,7 +31,21 @@ public class GetSqlResult {
                 List<String> line = Arrays.asList(
                         name, fever, contact, report, others, submissionDate);
                 lists.add(line);
+                finishedName.add(name);
             }
+
+            UserHelper userHelper = new UserHelper();
+            List<String> verifiedNameList = userHelper.getVerifiedName();
+
+            for (String name: verifiedNameList) {
+                if (!finishedName.contains(name)) {
+                    List<String> line = Arrays.asList(
+                            name, "", "", "", "", "");
+                    lists.add(line);
+                }
+            }
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

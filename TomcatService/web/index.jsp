@@ -17,7 +17,7 @@
 
   <body>
   <div style="text-align: center;">
-      <h1 align="center">每日信息汇报 v1.4</h1>
+      <h1 align="center">每日信息汇报 v1.5</h1>
       <form action="SubmitReport" method="post">
         <table align="center">
             <tr>
@@ -94,6 +94,12 @@
 
       <br>
       <br>
+
+      <form>
+          <button>abc</button>
+          <button>ccc</button>
+          <button>bbb</button>
+      </form>
 
       <span style="color: dimgray; ">
           <p style="align-content: center">

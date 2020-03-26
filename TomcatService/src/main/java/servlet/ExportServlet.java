@@ -3,6 +3,7 @@ package servlet;
 import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
+import config.Config;
 import entity.BoldStyle;
 import entity.PersonEntity;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -13,13 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.apache.log4j.Logger;
+import servlet.helper.GetSqlResult;
 
 /**
  * @author mengyuantan
@@ -37,10 +40,13 @@ public class ExportServlet extends HttpServlet {
             date = new String(req.getParameter("date").
                     getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
         } else {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat formatter = new SimpleDateFormat(Config.dateFormat);
             Date currentTime = new Date(System.currentTimeMillis());
             date = formatter.format(currentTime);
         }
+
+        Logger log = Logger.getLogger(ExportServlet.class);
+        log.info(String.format("Export report of date: %1$s", date));
 
         String sql;
         List<List<String>> lists = new ArrayList<>();
@@ -72,7 +78,8 @@ public class ExportServlet extends HttpServlet {
         fileName = URLEncoder.encode(fileName, "UTF-8");
         resp.addHeader("Content-Disposition", "attachment;filename=" + fileName);
 
-        String title = String.format("%s 汇总信息", date);
+        String title = String.format(
+                "%s 汇总信息（未提交汇报的同学名字也会列出，但当日信息均为空。）", date);
 
         ExportParams exportParams = new ExportParams(title, "sheet1",
                 ExcelType.XSSF);

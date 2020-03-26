@@ -1,12 +1,15 @@
 package servlet;
 
+import config.Config;
+import servlet.helper.BuildResponse;
+import servlet.helper.GetSqlResult;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,13 +41,17 @@ public class TodayReportServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter= new SimpleDateFormat(Config.dateFormat);
         Date currentTime = new Date(System.currentTimeMillis());
         String date = formatter.format(currentTime);
 
-        BuildResponse buildResponse = new BuildResponse();
-        StringBuilder result = buildResponse.buildResponse(date, lists);
-        printWriter.println(result);
+        try {
+            BuildResponse buildResponse = new BuildResponse();
+            StringBuilder result = buildResponse.buildResponse(date, lists);
+            printWriter.println(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

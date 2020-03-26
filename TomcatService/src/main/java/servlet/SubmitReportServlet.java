@@ -3,7 +3,7 @@ package servlet;
 import checker.NameChecker;
 import checker.OtherChecker;
 import checker.ReportChecker;
-import org.apache.poi.ss.formula.functions.Na;
+import servlet.helper.DoSql;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -68,18 +68,6 @@ public class SubmitReportServlet extends HttpServlet {
         DoSql doSql = new DoSql();
 
         try {
-            sql = "CREATE TABLE IF NOT EXISTS `person`" +
-                    "(`id` INT UNSIGNED AUTO_INCREMENT," +
-                    "`name` VARCHAR(40) NOT NULL," +
-                    "`fever` VARCHAR(10) NOT NULL," +
-                    "`contact` VARCHAR(10) NOT NULL," +
-                    "`report` VARCHAR(200)," +
-                    "`others` VARCHAR(200)," +
-                    "`submission_date` TIMESTAMP," +
-                    "PRIMARY KEY (`id`))" +
-                    "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-            doSql.doSql(sql);
-
             sql = String.format("SELECT * FROM person " +
                     "WHERE name = '%s' AND " +
                     "to_days(submission_date) = to_days(now());",
@@ -97,8 +85,8 @@ public class SubmitReportServlet extends HttpServlet {
                                 "contact = '%3$s', " +
                                 "report = '%4$s', " +
                                 "others = '%5$s', " +
-                                "submission_date = '%6$s'" +
-                                "WHERE name = '%1s' AND " +
+                                "submission_date = '%6$s' " +
+                                "WHERE name = '%1$s' AND " +
                                 "to_days(submission_date) = to_days(now());",
                         name, fever, contact, report, others,
                         new java.sql.Timestamp(System.currentTimeMillis()));
