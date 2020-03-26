@@ -95,12 +95,6 @@
       <br>
       <br>
 
-      <form>
-          <button>abc</button>
-          <button>ccc</button>
-          <button>bbb</button>
-      </form>
-
       <span style="color: dimgray; ">
           <p style="align-content: center">
               Power by
