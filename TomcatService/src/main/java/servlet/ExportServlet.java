@@ -23,6 +23,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import servlet.helper.GetSqlResult;
+import servlet.helper.IpUtils;
 
 /**
  * @author mengyuantan
@@ -45,11 +46,14 @@ public class ExportServlet extends HttpServlet {
             date = formatter.format(currentTime);
         }
 
-        Logger log = Logger.getLogger(ExportServlet.class);
-        log.info(String.format("Export report of date: %1$s", date));
-
         String sql;
         List<List<String>> lists = new ArrayList<>();
+
+        IpUtils ipUtils = new IpUtils();
+        String ipAddress = ipUtils.getVisitorIp(req);
+        Logger log = Logger.getLogger(ExportServlet.class);
+        log.info(String.format("IP: \"%1$s\", date: \"%2$s\", export report.",
+                ipAddress, date));
 
         sql = String.format("SELECT * FROM person " +
                 "WHERE to_days(submission_date) = to_days('%s');", date);

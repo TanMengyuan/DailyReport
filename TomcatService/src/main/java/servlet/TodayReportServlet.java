@@ -1,8 +1,11 @@
 package servlet;
 
 import config.Config;
+import org.apache.log4j.Logger;
 import servlet.helper.BuildResponse;
+import servlet.helper.DoSql;
 import servlet.helper.GetSqlResult;
+import servlet.helper.IpUtils;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +34,11 @@ public class TodayReportServlet extends HttpServlet {
         PrintWriter printWriter = resp.getWriter();
         String sql;
         List<List<String>> lists = new ArrayList<>();
+
+        IpUtils ipUtils = new IpUtils();
+        String ipAddress = ipUtils.getVisitorIp(req);
+        Logger log = Logger.getLogger(TodayReportServlet.class);
+        log.info(String.format("IP: \"%s\", get today report.", ipAddress));
 
         sql = "SELECT * FROM person WHERE to_days(submission_date) = to_days(now());";
 

@@ -1,7 +1,9 @@
 package servlet;
 
+import org.apache.log4j.Logger;
 import servlet.helper.BuildResponse;
 import servlet.helper.GetSqlResult;
+import servlet.helper.IpUtils;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +40,12 @@ public class HistoryReportServlet extends HttpServlet {
             printWriter.println("</body></html>");
             return;
         }
+
+        IpUtils ipUtils = new IpUtils();
+        String ipAddress = ipUtils.getVisitorIp(req);
+        Logger log = Logger.getLogger(HistoryReportServlet.class);
+        log.info(String.format("IP: \"%1$s\", date: \"%2$s\", get history report.",
+                ipAddress, date));
 
         sql = String.format("SELECT * FROM person " +
                 "WHERE to_days(submission_date) = to_days('%s');", date);

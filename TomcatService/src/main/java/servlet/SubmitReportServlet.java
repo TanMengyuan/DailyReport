@@ -3,7 +3,9 @@ package servlet;
 import checker.NameChecker;
 import checker.OtherChecker;
 import checker.ReportChecker;
+import org.apache.log4j.Logger;
 import servlet.helper.DoSql;
+import servlet.helper.IpUtils;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -91,6 +93,13 @@ public class SubmitReportServlet extends HttpServlet {
                         name, fever, contact, report, others,
                         new java.sql.Timestamp(System.currentTimeMillis()));
             }
+
+
+            IpUtils ipUtils = new IpUtils();
+            String ipAddress = ipUtils.getVisitorIp(req);
+            Logger log = Logger.getLogger(SubmitReportServlet.class);
+            log.info(String.format("IP: \"%1$s\", name: \"%2$s\", SQL: \"%3$s\", submit report.",
+                    ipAddress, name, sql));
 
             doSql.doSql(sql);
 

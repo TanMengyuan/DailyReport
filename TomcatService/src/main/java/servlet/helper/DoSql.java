@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import org.apache.log4j.Logger;
 
 /**
  * @author mengyuantan
@@ -16,7 +15,6 @@ public class DoSql {
         ResultSet rs = null;
 
         try {
-            Logger log = Logger.getLogger(DoSql.class);
             PreparedStatement stmt;
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection conn = DriverManager.getConnection(
@@ -27,7 +25,6 @@ public class DoSql {
                     Config.userName, Config.password);
             stmt = conn.prepareStatement(sql);
             stmt.execute();
-            log.info(String.format("execute SQL: %s", sql));
             rs = stmt.getResultSet();
         } catch (Exception e) {
             e.printStackTrace();

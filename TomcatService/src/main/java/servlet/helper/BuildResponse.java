@@ -41,18 +41,18 @@ public class BuildResponse {
         result.append("</table>");
 
         result.append(String.format(
+                "<form role=\"form\" method=\"post\" action=\"HistoryReport\">" +
+                        "<p align=\"center\" style=\"height: 40px\">" +
+                        "<button type=\"submit\" name=\"date\" value=\"%1$s\">前一日</button>" +
+                        "&nbsp;&nbsp;" +
+                        "<button type=\"submit\" name=\"date\" value=\"%2$s\">后一日</button>" +
+                        "</p></form>", pointDate.getYesterday(), pointDate.getTomorrow()));
+        result.append(String.format(
                 "<form role=\"form\" method=\"post\" action=\"Export\" target=\"_blank\">" +
                 "<p align=\"center\" style=\"height: 40px\">" +
                 "<button type=\"submit\" name=\"date\" value=\"%s\">导出为Excel</button>" +
-                "</p></form>", pointDate.getToday()));
-        result.append(String.format(
-                "<form role=\"form\" method=\"post\" action=\"HistoryReport\">" +
-                "<p align=\"center\" style=\"height: 40px\">" +
-                "<button type=\"submit\" name=\"date\" value=\"%1$s\">前一日</button>" +
-                "&nbsp;&nbsp;" +
-                "<button type=\"submit\" name=\"date\" value=\"%2$s\">后一日</button>" +
                 "</p></form>" +
-                "</body></html>", pointDate.getYesterday(), pointDate.getTomorrow()));
+                "</body></html>", pointDate.getToday()));
         return result;
     }
 }
