@@ -83,7 +83,7 @@ public class ExportServlet extends HttpServlet {
         resp.addHeader("Content-Disposition", "attachment;filename=" + fileName);
 
         String title = String.format(
-                "%s 汇总信息（未提交汇报的同学名字也会列出，但当日信息均为空。）", date);
+                "%s 汇总信息", date);
 
         ExportParams exportParams = new ExportParams(title, "sheet1",
                 ExcelType.XSSF);
