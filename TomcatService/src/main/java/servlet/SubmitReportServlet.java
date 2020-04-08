@@ -32,6 +32,12 @@ public class SubmitReportServlet extends HttpServlet {
         String report = new String(req.getParameter("report").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
         String others = new String(req.getParameter("others").getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
 
+        name = name.replace("'", "\\'");
+        fever = fever.replace("'", "\\'");
+        contact = contact.replace("'", "\\'");
+        report = report.replace("'", "\\'");
+        others = others.replace("'", "\\'");
+
         resp.setContentType("text/html;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
         PrintWriter printWriter = resp.getWriter();
