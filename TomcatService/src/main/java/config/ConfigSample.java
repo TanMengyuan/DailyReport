@@ -1,5 +1,8 @@
 package config;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author mengyuantan
  */
@@ -8,4 +11,9 @@ public class ConfigSample {
     public static String userName = "your_username";
     public static String password = "your_password";
     public static String dateFormat = "yyyy-MM-dd";
+    public final static List NAME_LIST =
+            Arrays.asList(
+                    "aaa", "bbb", "ccc", "ddd"
+            );
+    public static String startTime = "2020-04-09";
 }

@@ -1,5 +1,7 @@
 package servlet.helper;
 
+import org.apache.poi.ss.formula.ptg.AreaPtg;
+
 import java.text.ParseException;
 import java.util.List;
 
@@ -7,15 +9,18 @@ import java.util.List;
  * @author mengyuantan
  */
 public class BuildResponse {
-    public StringBuilder buildResponse(String date, List<List<String>> lists) throws ParseException {
+    public StringBuilder buildReportResponse(String date, List<List<String>> lists) throws ParseException {
         DateHelper dateHelper = new DateHelper();
         PointDate pointDate = dateHelper.getPointDate(date);
+        ScheduleDate scheduleDate = dateHelper.getScheduleDate(date);
 
         StringBuilder result = new StringBuilder();
         result.append("<html><body><table border=\"1\" align=\"center\" " +
                 "cellspacing=\"0\" style=\"table-layout: fixed\">");
         result.append(String.format("<tr><h3 align=\"center\">%s 汇总结果</h3></tr>",
                 date));
+        result.append(String.format("<tr><h5 align=\"center\">今日负责人：%s</h3></tr>",
+                scheduleDate.getPrincipal()));
         result.append("<tr>" +
                 "<th width=\"5%\">姓名</th>" +
                 "<th width=\"8%\">是否有发热症状</th>" +
@@ -55,4 +60,25 @@ public class BuildResponse {
                 "</body></html>", pointDate.getToday()));
         return result;
     }
+
+    public StringBuilder buildScheduleResponse(List<PersonInfo> list) {
+        StringBuilder result = new StringBuilder();
+        result.append("<html><body><table border=\"1\" " +
+                "cellspacing=\"0\" style=\"table-layout: fixed\">");
+        result.append("<tr><h3>每日收集信息负责人</h3></tr>");
+        result.append("<tr>" +
+                "<th width=\"50%\">时间</th>" +
+                "<th width=\"50%\">负责人</th>" +
+                "</tr>");
+        for (PersonInfo personInfo: list) {
+            result.append(String.format(
+                    "<tr><td style=\"word-wrap: break-word\">%1$s</td>" +
+                            "<td style=\"word-wrap: break-word\">%2$s</td></tr>",
+                    personInfo.getDate(), personInfo.getName()));
+        }
+        result.append("</table></body></html>");
+
+        return result;
+    }
+
 }

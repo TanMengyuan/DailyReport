@@ -60,11 +60,17 @@
         </table>
       </form>
 
-      <h3>获取当日信息</h3>
+      <h3>获取当日信息及安排表</h3>
 
       <form action="TodayReport" method="get" target="_blank">
           <p align="center" style="height: 40px">
               <input type="submit" value="获取当日汇总信息">
+          </p>
+      </form>
+
+      <form action="Schedule" method="get" target="_blank">
+          <p align="center" style="height: 40px">
+              <input type="submit" value="获取每日汇总安排表">
           </p>
       </form>
 

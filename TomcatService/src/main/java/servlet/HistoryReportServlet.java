@@ -59,7 +59,7 @@ public class HistoryReportServlet extends HttpServlet {
 
         try {
             BuildResponse buildResponse = new BuildResponse();
-            StringBuilder result = buildResponse.buildResponse(date, lists);
+            StringBuilder result = buildResponse.buildReportResponse(date, lists);
             printWriter.println(result);
         } catch (Exception e) {
             e.printStackTrace();
