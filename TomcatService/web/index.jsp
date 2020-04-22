@@ -17,7 +17,7 @@
 
   <body>
   <div style="text-align: center;">
-      <h1 align="center">每日信息汇报 v1.5.2</h1>
+      <h1 align="center">每日信息汇报 v1.5.3</h1>
       <form action="SubmitReport" method="post">
         <table align="center">
             <tr>
@@ -70,7 +70,7 @@
 
       <form action="Schedule" method="get" target="_blank">
           <p align="center" style="height: 40px">
-              <input type="submit" value="获取每日汇总安排表">
+              <input type="submit" value="每日收集信息负责人">
           </p>
       </form>
 
