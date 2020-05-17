@@ -17,7 +17,7 @@
 
   <body>
   <div style="text-align: center;">
-      <h1 align="center">每日信息汇报 v1.5.3</h1>
+      <h1 align="center">每日信息汇报 v1.5.4</h1>
       <form action="SubmitReport" method="post">
         <table align="center">
             <tr>
